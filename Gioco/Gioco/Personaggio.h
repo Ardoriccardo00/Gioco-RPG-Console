@@ -20,7 +20,7 @@ private:
 
 public:
 	Personaggio() {}
-	Personaggio(string Nome, char Sprite, int Livello, int Atk, int Def, int Ps, int Exp, int Attacco1, int Attacco2, int Attacco3, int Attacco4) {
+	Personaggio(string Nome, char Sprite, int Livello, int Atk, int Def, int Ps, int Exp) {
 		_nome = Nome;
 		_sprite = Sprite;
 		_livello = Livello;
@@ -29,23 +29,23 @@ public:
 		_ps = Ps;
 		_exp = Exp;
 	}
-	char CreaPersonaggio(string Nome, char Sprite, int Livello, int Atk, int Def, int Ps, int Exp);
-	int Attacco1(int Atk);
-	int Attacco2(int Atk);
-	int Attacco3(int Atk);
-	int Attacco4(int Atk);
+	void CreaPersonaggio(string Nome, char Sprite, int Livello, int Atk, int Def, int Ps, int Exp);
 
 	void LevelUp();
+
+	void Statistiche();
 };
 
-char Personaggio::CreaPersonaggio(string Nome, char Sprite, int Livello, int Atk, int Def, int Ps, int Exp) {
+void Personaggio::CreaPersonaggio(string Nome, char Sprite, int Livello, int Atk, int Def, int Ps, int Exp) {
 	cout << "\nCrea uno sprite per il tuo personaggio ";
 	cin >> Sprite;
+	_sprite = Sprite;
 	cout << "\nIl tuo sprite sara': ";
 	cout << Sprite;
 
 	cout << "\nAdesso dagli un nome: ";
 	cin >> Nome;
+	_nome = Nome;
 
 	cout << "\nGenerazione statistiche... ";
 
@@ -54,14 +54,21 @@ char Personaggio::CreaPersonaggio(string Nome, char Sprite, int Livello, int Atk
 	A = rand() % 10 + 1;
 
 	Atk = A;
+	_atk = Atk;
 
 	A = rand() % 10 + 1;
 
 	Def = A;
+	_def = Def;
 
 	A = rand() % 20 + 1;
 
 	Ps = A;
+	_ps = Ps;
+
+	_livello = 1;
+	_exp = 0;
+
 
 	cout << "\nL' attacco e': ";
 	cout << Atk;
@@ -70,47 +77,29 @@ char Personaggio::CreaPersonaggio(string Nome, char Sprite, int Livello, int Atk
 	cout << "\nI Ps sono: ";
 	cout << Ps;
 
-	return Sprite;
+	Personaggio personaggio(Nome, Sprite, Livello, Atk, Def, Ps, Exp);
+
+	
 
 }
 
-int Personaggio::Attacco1(int Atk) {
-	int Danno;
-
-	int DannoTotale = Danno + Atk;
-
-	return DannoTotale;
-}
-
-int Personaggio::Attacco2(int Atk) {
-	int Danno;
-
-	int DannoTotale = Danno + Atk;
-
-	return DannoTotale;
-}
-
-int Personaggio::Attacco2(int Atk) {
-	int Danno;
-
-	int DannoTotale = Danno + Atk;
-
-	return DannoTotale;
-}
-
-int Personaggio::Attacco3(int Atk) {
-	int Danno;
-
-	int DannoTotale = Danno + Atk;
-
-	return DannoTotale;
-}
-int Personaggio::Attacco4(int Atk) {
-	int Danno;
-
-	int DannoTotale = Danno + Atk;
-
-	return DannoTotale;
-}
 
 void Personaggio::LevelUp() {}
+
+void Personaggio::Statistiche() {
+	cout << "\nIl nome e': ";
+	cout << _nome;
+	cout << "\nLo sprite e': ";
+	cout << _sprite;
+	cout << "\nIl livello e': ";
+	cout << _livello;
+	cout << "\nL'attacco e': ";
+	cout << _atk;
+	cout << "\nLa difesa e': ";
+	cout << _def;
+	cout << "\nI PS sono: ";
+	cout << _ps;
+	cout << "\nI punti esperienza sono: ";
+	cout << _exp;
+	cout << "\n";
+}
