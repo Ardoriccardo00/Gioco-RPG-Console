@@ -1,0 +1,161 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A8113DB4-3F56-466D-96E0-C79317580778}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Istruzioni</RootNamespace>
+    <AssemblyName>Istruzioni</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="gioco1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="gioco1.Designer.cs">
+      <DependentUpon>gioco1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="gioco2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="gioco2.Designer.cs">
+      <DependentUpon>gioco2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="gioco3.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="gioco3.Designer.cs">
+      <DependentUpon>gioco3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Informazioni.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Informazioni.Designer.cs">
+      <DependentUpon>Informazioni.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Istruzioni.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Istruzioni.Designer.cs">
+      <DependentUpon>Istruzioni.cs</DependentUpon>
+    </Compile>
+    <Compile Include="no.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="no.Designer.cs">
+      <DependentUpon>no.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="gioco1.resx">
+      <DependentUpon>gioco1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="gioco2.resx">
+      <DependentUpon>gioco2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="gioco3.resx">
+      <DependentUpon>gioco3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Informazioni.resx">
+      <DependentUpon>Informazioni.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Istruzioni.resx">
+      <DependentUpon>Istruzioni.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="no.resx">
+      <DependentUpon>no.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\nana finna woke.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Bqr7sM6CEAAkTSB.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\images.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\20131231-16470752-doge.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\you know Siena had to do it to em.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gioco1.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gioco2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gioco3.PNG" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
