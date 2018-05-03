@@ -50,7 +50,7 @@ int main() {
 		}
 		system("cls");
 		Sleep(1000);
-		cout << "u faget";
+		cout << "help";
 		Sleep(20);
 		system("cls");
 		Sleep(5000);
