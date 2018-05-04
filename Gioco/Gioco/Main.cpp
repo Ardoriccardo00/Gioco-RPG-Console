@@ -31,7 +31,7 @@ int main() {
 	_getch();
 		cout << "Inizio gioco" << endl;
 		Sleep(500);
-		cout << "Caricamento " << endl;
+		cout << "Caricamento ";
 		Sleep(1000);
 		cout << ". ";
 		Sleep(1000);
@@ -39,7 +39,8 @@ int main() {
 		Sleep(1000);
 		cout << ". ";
 		Sleep(1000);
-		cout << ". ";   
+		cout << ". " << endl
+			;   
 
 		p.CreaPersonaggio(nome, sprite, livello , attacco, difesa, salute, exp);
 

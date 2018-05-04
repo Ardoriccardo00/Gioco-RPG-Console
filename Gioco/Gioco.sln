@@ -5,10 +5,6 @@ VisualStudioVersion = 15.0.27428.2027
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Gioco", "Gioco\Gioco.vcxproj", "{3FD6885E-7922-40FB-B70A-B980324394A3}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Esempio libro paga elettronico", "..\..\Esempio libro paga elettronico\Esempio libro paga elettronico\Esempio libro paga elettronico.vcxproj", "{A428E5B0-4C95-48C6-A53B-7A3D6005B699}"
-EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ProgettoMarzo", "..\..\Progetto_marzo2\ProgettoMarzo\ProgettoMarzo\ProgettoMarzo.vcxproj", "{2A132CF3-20B7-413F-9B15-4193D57B362D}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -25,22 +21,6 @@ Global
 		{3FD6885E-7922-40FB-B70A-B980324394A3}.Release|x64.Build.0 = Release|x64
 		{3FD6885E-7922-40FB-B70A-B980324394A3}.Release|x86.ActiveCfg = Release|Win32
 		{3FD6885E-7922-40FB-B70A-B980324394A3}.Release|x86.Build.0 = Release|Win32
-		{A428E5B0-4C95-48C6-A53B-7A3D6005B699}.Debug|x64.ActiveCfg = Debug|x64
-		{A428E5B0-4C95-48C6-A53B-7A3D6005B699}.Debug|x64.Build.0 = Debug|x64
-		{A428E5B0-4C95-48C6-A53B-7A3D6005B699}.Debug|x86.ActiveCfg = Debug|Win32
-		{A428E5B0-4C95-48C6-A53B-7A3D6005B699}.Debug|x86.Build.0 = Debug|Win32
-		{A428E5B0-4C95-48C6-A53B-7A3D6005B699}.Release|x64.ActiveCfg = Release|x64
-		{A428E5B0-4C95-48C6-A53B-7A3D6005B699}.Release|x64.Build.0 = Release|x64
-		{A428E5B0-4C95-48C6-A53B-7A3D6005B699}.Release|x86.ActiveCfg = Release|Win32
-		{A428E5B0-4C95-48C6-A53B-7A3D6005B699}.Release|x86.Build.0 = Release|Win32
-		{2A132CF3-20B7-413F-9B15-4193D57B362D}.Debug|x64.ActiveCfg = Debug|x64
-		{2A132CF3-20B7-413F-9B15-4193D57B362D}.Debug|x64.Build.0 = Debug|x64
-		{2A132CF3-20B7-413F-9B15-4193D57B362D}.Debug|x86.ActiveCfg = Debug|Win32
-		{2A132CF3-20B7-413F-9B15-4193D57B362D}.Debug|x86.Build.0 = Debug|Win32
-		{2A132CF3-20B7-413F-9B15-4193D57B362D}.Release|x64.ActiveCfg = Release|x64
-		{2A132CF3-20B7-413F-9B15-4193D57B362D}.Release|x64.Build.0 = Release|x64
-		{2A132CF3-20B7-413F-9B15-4193D57B362D}.Release|x86.ActiveCfg = Release|Win32
-		{2A132CF3-20B7-413F-9B15-4193D57B362D}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
