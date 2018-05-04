@@ -29,38 +29,37 @@ int main() {
 	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 	SetConsoleTextAttribute(hConsole, 15);
 	_getch();
-		cout << "Inizio gioco";
+		cout << "Inizio gioco" << endl;
 		Sleep(500);
-		cout << "\nCaricamento ";
-		//Sleep(1000);
-		//cout << ". ";
-		//Sleep(1000);
-		//cout << ". ";
-		//Sleep(1000);
-		//cout << ". ";
-		//Sleep(1000);
-		//cout << ". ";
+		cout << "Caricamento " << endl;
+		Sleep(1000);
+		cout << ". ";
+		Sleep(1000);
+		cout << ". ";
+		Sleep(1000);
+		cout << ". ";
+		Sleep(1000);
+		cout << ". ";   
 
 		p.CreaPersonaggio(nome, sprite, livello , attacco, difesa, salute, exp);
 
-		cout << "\nBene, ora che hai creato un personaggio, premi invio per iniziare il gioco";
+		cout << "Bene, ora che hai creato un personaggio, premi invio per iniziare il gioco" << endl;
 		_getch();
 		Sleep(1000);
 
-		//for (int i = 0; i < 100; i++) {
-		//	SetConsoleTextAttribute(hConsole, 12);
-		//	cout << "01010001011101010110010101110011011101000110000100100000111010000010000001110101011011100110000100100000011100110110001101110010011010010111010001110100011000010010000001101001011011100010000001100010011010010110111001100001011100100110100101101111001000000111000001100101";
-		//}
-		//system("cls");
-		//Sleep(1000);
-		//cout << "help" << endl;
-		//Sleep(40);
-		//system("cls");
-		//Sleep(1000);
+		for (int i = 0; i < 100; i++) {
+			SetConsoleTextAttribute(hConsole, 12);
+			cout << "01010001011101010110010101110011011101000110000100100000111010000010000001110101011011100110000100100000011100110110001101110010011010010111010001110100011000010010000001101001011011100010000001100010011010010110111001100001011100100110100101101111001000000111000001100101";
+		}
+		system("cls");
+		Sleep(1000);
+		cout << "help" << endl;
+		Sleep(40);
+		system("cls");
+		Sleep(1000); 
 
 		SetConsoleTextAttribute(hConsole, 11);
 		do {
-		
 			SetConsoleTextAttribute(hConsole, 11);
 			cout << "##############################################################################" << endl;
 			cout << "#############################";
@@ -85,15 +84,17 @@ int main() {
 			cout << "Mappa" << endl;
 			SetConsoleTextAttribute(hConsole, 11);
 			cout << "##############################################################################" << endl;
+			cout << "Esci" << endl;
+			cout << "##############################################################################" << endl;
 
 			cin >> scelta;
 
-			if (scelta == 1) { SetConsoleTextAttribute(hConsole, 12); cout << "inserisci una posizione: " << endl; cin >> posizione; }
-			else if (scelta == 2) { SetConsoleTextAttribute(hConsole, 15);   p.Esamina();}
-			else if (scelta == 3) { SetConsoleTextAttribute(hConsole, 13);  p.Statistiche();    }
-			else if (scelta == 4) { SetConsoleTextAttribute(hConsole, 10); g.Mappa(posizione); }
+				if (scelta == 1) { SetConsoleTextAttribute(hConsole, 12); cout << "inserisci una posizione: " << endl; cin >> posizione; }
+				else if (scelta == 2) { SetConsoleTextAttribute(hConsole, 15);   p.Esamina(); }
+				else if (scelta == 3) { SetConsoleTextAttribute(hConsole, 13);  p.Statistiche(); }
+				else if (scelta == 4) { SetConsoleTextAttribute(hConsole, 10); g.Mappa(posizione); }
 			_getch();
-		} while (true);
+		} while (scelta != 5);
 
 	_getch();
 

@@ -17,7 +17,7 @@ private:
 	int _def;
 	int _ps;
 	int _exp;
-	int _expMax;
+	int _expMax = 100;
 	int _psMax;
 
 	char _nemico;
@@ -51,25 +51,33 @@ public:
 
 	void Nemico();
 
+	void Battagliainvincibile();
+
+	void NemicoInvincibile();
+
 };
 
 void Personaggio::CreaPersonaggio(string Nome, char Sprite, int Livello, int Atk, int Def, int Ps, int Exp) {
-	cout << "\nCrea uno sprite per il tuo personaggio ";
+	cout << "Crea uno sprite per il tuo personaggio ";
 	cin >> Sprite;
 	_sprite = Sprite;
-	cout << "\nIl tuo sprite sara': ";
-	cout << Sprite;
+	cout << endl << "Il tuo sprite sara': " << Sprite << endl;
 
-	cout << "\nAdesso dagli un nome: ";
+	cout << "Adesso dagli un nome: ";
 	cin >> Nome;
 	_nome = Nome;
+	cout << endl << "Il nome sara' " << Nome << endl;
 
-	cout << "\nGenerazione statistiche... ";
+	cout << "Generazione statistiche... " << endl;
 
 	srand((unsigned)time(NULL));
 
+	do {
 	Atk = rand() % 30 + 2;
-	Ps = rand() % 20 + 2;
+	} while (Atk < 10);
+	do {
+		Ps = rand() % 20 + 2;
+	} while (Ps < 10);
 	Def = rand() % 5 + 1;
 
 	_atk = Atk;
@@ -78,54 +86,55 @@ void Personaggio::CreaPersonaggio(string Nome, char Sprite, int Livello, int Atk
 	_livello = 1;
 	_exp = 0;
 	_psMax = _ps;
+	_expMax = 100;
 
 
-	cout << "\nL' attacco e': ";
-	cout << Atk;
-	cout << "\nLa difesa e': ";
-	cout << Def;
-	cout << "\nI Ps sono: ";
-	cout << Ps;
+	cout << "L' attacco e': " << Atk << endl;
+	cout << "La difesa e': " << Def << endl;
+	cout << "I Ps sono: " << Ps << endl;
 
 	Personaggio personaggio(Nome, Sprite, Livello, Atk, Def, Ps, Exp);
 
-	
-
 }
 
-
-void Personaggio::LevelUp() {}
+void Personaggio::LevelUp() {
+	if (_exp == _expMax) {
+		cout << "Sei aumentato di livello! ";
+		_livello = _livello + 1;
+		_atk = _atk + 3;
+		_def = _def + 2;
+		_ps = _psMax;
+		_ps = _ps + 3;
+		_psMax = _ps;
+		_expMax = _expMax * 2;
+		_exp = 0;
+	}
+}
 
 void Personaggio::Statistiche() {
-	cout << "\n##############################################################################";
-	cout << "\nIl nome e': ";
-	cout << _nome;
-	cout << "\nLo sprite e': ";
-	cout << _sprite;
-	cout << "\nIl livello e': ";
-	cout << _livello;
-	cout << "\nL'attacco e': ";
-	cout << _atk;
-	cout << "\nLa difesa e': ";
-	cout << _def;
-	cout << "\nI PS sono: ";
-	cout << _ps;
-	cout << "\nI punti esperienza sono: ";
-	cout << _exp << endl;
-	cout << "\n##############################################################################" << endl;
+	cout << "##############################################################################" << endl;
+	cout << "Il nome e': " << _nome << endl;
+	cout << "Lo sprite e': " << _sprite << endl;
+	cout << "Il livello e': " << _livello << endl;
+	cout << "L'attacco e': " << _atk << endl;
+	cout << "La difesa e': " << _def << endl;
+	cout << "I PS sono: " << _ps << endl;
+	cout << "I punti esperienza sono: " << _exp << endl;
+	cout << "##############################################################################" << endl;
 }
 
 void Personaggio::Esamina() {
+	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 	int A;
 	srand((unsigned)time(NULL));
 	A = rand() % 5;
 
-	if (A == 0) { _atk = 100000; _def = 100000; _ps = 100000; cout << "Sei potentissimo!!!!"; }
-	if (A == 1) { cout << "Hai ottenuto punti vita massimi!" << endl; _ps = _psMax; }
-	if (A == 2) { cout << "Hai perso 10 punti vita!" << endl; }
-	if (A == 3) { cout << "Hai guadagnato 100 punti exp!" << endl; }
-	if (A == 4) { cout << "Non so cosa scrivere" << endl; }
-	if (A == 1 || A == 2 || A == 3 || A == 4 || A == 5) { cout << "Incontri un nemicoaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa!" << endl; Battaglia(); }
+	if (A == 0) { _atk = 100000; _def = 100000; _ps = 100000; cout << "Sei potentissimo!!!!" << endl; Battaglia();}
+	if (A == 1) { cout << "Hai ottenuto punti vita massimi!" << endl; _ps = _psMax; Battaglia();}
+	if (A == 2) { cout << "Niente..." << endl; }
+	if (A == 3) { cout << "Hai guadagnato 50 punti exp!" << endl; _exp = _exp + 50; if (_exp > _expMax) { LevelUp(); }}
+	if (A == 4) { cout << "Oh no, ti devi scontrare con un nemico invincibile!!!" << endl; SetConsoleTextAttribute(hConsole, 4); Battagliainvincibile(); }
+	if (A == 5) { cout << "Incontri un nemicoaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa!" << endl; Battaglia(); }
 
 }
 
@@ -150,11 +159,13 @@ void Personaggio::Battaglia()
 		cout << "##############################################################################" << endl;
 		cout << "#                                 Battaglia!                                 #" << endl;
 		cout << "##############################################################################" << endl;
-		cout << "#                         Ps: " << _ps << "  Atk: " << _atk << "  Def: " << _def << "  Exp: " << _exp << "                    #" << endl;
+		cout << "#                         Ps: " << _ps << "  Atk: " << _atk << "  Def: " << _def << "  Exp: " << _exp << "                     #" << endl;
 		cout << "##############################################################################" << endl;
 		cout << "#                       Ps nemico: " << _psNemico << "  Atk nemico: " << _atkNemico << "  Def nemico: " << _defNemico  << "          #" << endl;
 		cout << "##############################################################################" << endl;
-		cout << "#      " << _sprite << "                                                              " << _nemico << "       #" << endl;
+		cout << "#                                                                            #" << endl;
+		cout << "#      " << _sprite << "                                                              " << _nemico << "      #" << endl;
+		cout << "#                                                                            #" << endl;
 		cout << "##############################################################################" << endl;
 		cout << "#          1: Attacco                                     2: Difesa          #" << endl;
 		cout << "##############################################################################" << endl;
@@ -162,11 +173,22 @@ void Personaggio::Battaglia()
 		cin >> scelta;
 
 		//attacco
-		if (scelta == 1) { _psNemico = _psNemico - _atk; cout << "I Ps del nemico sono: " << _psNemico << endl; _ps = _ps - _atkNemico; cout << "I tuoi Ps sono: " << _ps << endl; }
+		if (scelta == 1) { _psNemico = _psNemico - _atk; cout << "Hai inflitto " << _atk << " danni " << endl << " I Ps del nemico sono: " << _psNemico << endl; _ps = _ps - _atkNemico; cout << "Hai subito " << _atkNemico << " danni. " << endl << "I tuoi Ps sono: " << _ps << endl; }
 		//difesa
-		else if (scelta == 2) { _psNemico = _psNemico - 0; _ps = _ps - _atkNemico / 2;  cout << "I Ps del nemico sono: " << _psNemico << endl;  cout << "I tuoi Ps sono: " << _ps << endl;}
+		else if (scelta == 2) { _psNemico = _psNemico - 0; _ps = _ps - _atkNemico / 2;  cout << "Hai inflitto " << _atk << " danni " << endl << "I Ps del nemico sono: " << _psNemico << endl;  cout << "Hai subito " << _atkNemico << " danni. " << endl << "I tuoi Ps sono: " << _ps << endl;}
 
-		if (_psNemico <= 0) { cout << "Hai vino lol" << endl; Sleep(1000); fine = true; }
+		if (_ps < 0) { _ps = 0; }
+		if (_psNemico < 0) { _psNemico = 0; }
+
+		if (_psNemico <= 0) { cout << "Hai vino lol" << endl; Sleep(1000); fine = true;
+		int A;
+		srand((unsigned)time(NULL));
+		A = rand() % 30 + 2;
+		_exp = _exp + A;
+		cout << "Hai guadagnato " << A << " punti esperienza" << endl;
+		_ps = _ps + 1;
+		if (_exp > _expMax) { LevelUp(); }
+		}
 		if (_ps <= 0) { cout << "Hai persoooooooooooooaaaaaaaaaaaaaaaaaaaaaaaaaaa" << endl; Sleep(1000); fine = true; }
 		
 
@@ -199,7 +221,75 @@ void Personaggio::Nemico() {
 
 	_livelloNemico = rand() % 15 + 2;
 	_psNemico = rand() % 20 + 2;
-	_atkNemico = rand() % 30 + 2;
+	do {
+		_atkNemico = rand() % 30 + 2;
+	} while (_atkNemico < 10);
 	_defNemico = rand() % 5 + 1;
 
+}
+
+void Personaggio::NemicoInvincibile() {
+
+	_livelloNemico = 666666;
+	_psNemico = 666666;
+	_atkNemico = 666666;
+	_defNemico = 666666; 
+	_nemico = 'ç§ç';
+
+}
+
+void Personaggio::Battagliainvincibile() {
+	RandomChar();
+
+	int scelta;
+	bool fine = false;
+	NemicoInvincibile();
+
+	_atk = _atk - _defNemico;
+	if (_atk < _defNemico) { _atk = 1; }
+
+	_atkNemico = _atkNemico - _def;
+	if (_atkNemico < _def) { _atkNemico = 1; }
+
+	do {
+
+		cout << "##############################################################################" << endl;
+		cout << "#                                 Battaglia!                                 #" << endl;
+		cout << "##############################################################################" << endl;
+		cout << "#                         Ps: " << _ps << "  Atk: " << _atk << "  Def: " << _def << "  Exp: " << _exp << " #                   #" << endl;
+		cout << "##############################################################################" << endl;
+		cout << "#                       Ps nemico: " << _psNemico << "  Atk nemico: " << _atkNemico << "  Def nemico: " << _defNemico << "          #" << endl;
+		cout << "##############################################################################" << endl;
+		cout << "#                                                                            #" << endl;
+		cout << "#      " << _sprite << "                                                              " << _nemico << "      #" << endl;
+		cout << "#                                                                            #" << endl;
+		cout << "##############################################################################" << endl;
+		cout << "#          1: Attacco                                     2: Difesa          #" << endl;
+		cout << "##############################################################################" << endl;
+
+		cin >> scelta;
+
+		//attacco
+		if (scelta == 1) { _psNemico = _psNemico - _atk; cout << "Hai inflitto " << _atk << " danni " << endl << " I Ps del nemico sono: " << _psNemico << endl; _ps = _ps - _atkNemico; cout << "Hai subito " << _atkNemico << " danni. " << endl << "I tuoi Ps sono: " << _ps << endl; }
+		//difesa
+		else if (scelta == 2) { _psNemico = _psNemico - 0; _ps = _ps - _atkNemico / 2;  cout << "Hai inflitto " << _atk << " danni " << endl << "I Ps del nemico sono: " << _psNemico << endl;  cout << "Hai subito " << _atkNemico << " danni. " << endl << "I tuoi Ps sono: " << _ps << endl; }
+
+		if (_psNemico <= 0) { cout << "Hai vino lol" << endl; Sleep(1000); fine = true; }
+		if (_ps <= 0) {
+			cout << "Hai persoooooooooooooaaaaaaaaaaaaaaaaaaaaaaaaaaa" << endl; Sleep(1000); fine = true; _getch();
+			for (int i = 0; i < 100000; i++) {
+				cout << "HELP help";
+				cout << "help HELP";
+			}
+			system("cls");
+			Sleep(1000);
+			cout << "morto lol" << endl;
+			Sleep(40);
+			system("cls");
+			Sleep(1000); 
+		}
+
+
+
+	} while (fine == false);
 }
