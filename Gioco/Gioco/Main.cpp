@@ -6,6 +6,7 @@
 #include <vector>
 #include <Windows.h>
 #include <conio.h>
+#include <fstream>
 #include "Stringhe.h"
 #include "Menu.h"
 #include "Personaggio.h"
@@ -22,6 +23,7 @@ int main() {
 	int exp = 0;
 	int scelta;
 	int posizione = 1;
+	bool salvataggio = false;
 	Menu m;
 	Personaggio p;
 	Gioco g;
@@ -29,24 +31,24 @@ int main() {
 	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 	SetConsoleTextAttribute(hConsole, 15);
 	_getch();
-		cout << "Inizio gioco" << endl;
-		Sleep(500);
-		cout << "Caricamento ";
-		Sleep(1000);
-		cout << ". ";
-		Sleep(1000);
-		cout << ". ";
-		Sleep(1000);
-		cout << ". ";
-		Sleep(1000);
-		cout << ". " << endl
-			;   
+		//cout << "Inizio gioco" << endl;
+		//Sleep(500);
+		//cout << "Caricamento ";
+		//Sleep(1000);
+		//cout << ". ";
+		//Sleep(1000);
+		//cout << ". ";
+		//Sleep(1000);
+		//cout << ". ";
+		//Sleep(1000);
+		//cout << ". " << endl;   
 
-		p.CreaPersonaggio(nome, sprite, livello , attacco, difesa, salute, exp);
-
+	    p.LeggiSalvataggio(salvataggio);
+		if (salvataggio == false) { p.CreaPersonaggio(nome, sprite, livello, attacco, difesa, salute, exp); }
+		else { cout << "Salvataggio già presente" << endl; }
 		cout << "Bene, ora che hai creato un personaggio, premi invio per iniziare il gioco" << endl;
 		_getch();
-		Sleep(1000);
+/*		Sleep(1000);
 
 		for (int i = 0; i < 100; i++) {
 			SetConsoleTextAttribute(hConsole, 12);
@@ -57,7 +59,7 @@ int main() {
 		cout << "help" << endl;
 		Sleep(40);
 		system("cls");
-		Sleep(1000); 
+		Sleep(1000);*/ 
 
 		SetConsoleTextAttribute(hConsole, 11);
 		do {
@@ -96,8 +98,6 @@ int main() {
 				else if (scelta == 4) { SetConsoleTextAttribute(hConsole, 10); g.Mappa(posizione); }
 			_getch();
 		} while (scelta != 5);
-
-	_getch();
 
 	return 0;
 }

@@ -6,6 +6,7 @@
 #include <vector>
 #include <Windows.h>
 #include <ctime>
+#include <fstream>
 using namespace::std;
 
 class Personaggio {
@@ -26,6 +27,7 @@ private:
 	int _defNemico;
 	int _psNemico;
 
+	bool _salvataggio;
 public:
 	Personaggio() {}
 	Personaggio(string Nome, char Sprite, int Livello, int Atk, int Def, int Ps, int Exp) {
@@ -54,6 +56,10 @@ public:
 	void Battagliainvincibile();
 
 	void NemicoInvincibile();
+
+	bool LeggiSalvataggio(bool _salvataggio);
+
+	void CopiaSalvataggio();
 
 };
 
@@ -87,6 +93,15 @@ void Personaggio::CreaPersonaggio(string Nome, char Sprite, int Livello, int Atk
 	_exp = 0;
 	_psMax = _ps;
 	_expMax = 100;
+
+	ofstream f("file.txt"); //se il file non esiste lo crea, altrimenti lo sovrascrive!
+
+	f << "1" << endl <<
+		Nome << endl <<
+		Sprite << endl << 
+		Atk << endl << 
+		Def << endl <<
+		Ps << endl;
 
 
 	cout << "L' attacco e': " << Atk << endl;
@@ -293,3 +308,82 @@ void Personaggio::Battagliainvincibile() {
 
 	} while (fine == false);
 }
+
+bool Personaggio::LeggiSalvataggio(bool _salvataggio)
+{
+	ifstream f;
+	char s[3];
+	char q[1];
+	UINT16 coso = 0;
+
+	f.open("file.txt", std::ifstream::in);
+
+	if (f.is_open())
+	{
+		cout << "file aperto" << endl;
+	}
+	else
+	{
+		cout << "file chiuso" << endl;
+	}
+	//f.read(q, 1);
+	f.getline(s,3);
+	f.close();
+
+	coso = s[0];
+
+	if (s[0] == 49) { cout << "Trovato salvataggio"; _salvataggio = true; }
+	else
+	{
+		cout << "carattere letto: " << s[0] << endl;
+		cout << "decimale: " << coso << endl;
+	}
+
+	return _salvataggio;
+}
+
+void Personaggio::CopiaSalvataggio()
+{
+	ifstream f;
+	char s[3];
+	char nome[3];
+	char attacco[3];
+	char difesa[3];
+	char livello[3];
+	char exp[3];
+	UINT16 coso = 0;
+
+	f.open("file.txt", std::ifstream::in);
+
+	if (f.is_open())
+	{
+		cout << "file aperto per copia" << endl;
+	}
+	else
+	{
+		cout << "file non aperto per copia" << endl;
+	}
+
+	f.getline(s, 3);
+	f.getline(nome, 3);
+	f.getline(attacco, 3);
+	f.getline(difesa, 3);
+	f.getline(livello, 3);
+	f.getline(exp, 3);
+	f.close();
+
+	_sprite = s[0];
+	string aNiceString(nome);
+	_nome = aNiceString;
+	int aNiceInt(attacco);
+	_atk = attacco;
+	_def = difesa;
+	_livello = livello;
+	_exp = exp;
+
+    
+
+}
+
+
+
