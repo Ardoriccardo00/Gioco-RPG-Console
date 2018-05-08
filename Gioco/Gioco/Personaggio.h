@@ -29,12 +29,13 @@ private:
 
 	bool _salvataggio;
 
-	int _PsSu;
-	int _ExpSu;
-	int _AtkSu;
-	int _DefSu;
+	int _PsSu = 0;
+	int _ExpSu = 0;
+	int _AtkSu = 0;
+	int _DefSu = 0;
 
 public:
+	//Costruttore di default e costruttore
 	Personaggio() {}
 	Personaggio(string Nome, char Sprite, int Livello, int Atk, int Def, int Ps, int Exp) {
 		_nome = Nome;
@@ -69,8 +70,11 @@ public:
 
 	void Oggetti();
 
+	void Salvataggio(string Nome, char Sprite, int Livello, int Atk, int Def, int Ps, int Exp);
+
 };
 
+//Metodo che permette di creare il proprio personaggio all' inizio del gioco
 void Personaggio::CreaPersonaggio(string Nome, char Sprite, int Livello, int Atk, int Def, int Ps, int Exp) {
 	cout << "Crea uno sprite per il tuo personaggio ";
 	cin >> Sprite;
@@ -102,16 +106,17 @@ void Personaggio::CreaPersonaggio(string Nome, char Sprite, int Livello, int Atk
 	_psMax = _ps;
 	_expMax = 100;
 
-	int scelta;
+	char scelta;
 
-	cout << "vuoi salvare?" << endl;
+	cout << "vuoi salvare? [S]" << endl;
 	cin >> scelta;
-	if(scelta == 1){
+	if(scelta == 'S' || scelta == 's'){
 		ofstream f("file.txt");
 
 		f << "1" << endl <<
 			Nome << endl <<
 			Sprite << endl <<
+			Livello << endl <<
 			Atk << endl <<
 			Def << endl <<
 			Ps << endl;
@@ -128,6 +133,7 @@ void Personaggio::CreaPersonaggio(string Nome, char Sprite, int Livello, int Atk
 
 }
 
+//Metodo che entra in funzione quando il personaggio raggiunge un certo numero di punti esperienza che permette di aumentare di livello
 void Personaggio::LevelUp() {
 	if (_exp >= _expMax) {
 		cout << "Sei aumentato di livello! ";
@@ -142,6 +148,7 @@ void Personaggio::LevelUp() {
 	}
 }
 
+//Metodo che permette di visualizzare le statistiche del personaggio
 void Personaggio::Statistiche() {
 	cout << "##############################################################################" << endl;
 	cout << "Il nome e': " << _nome << endl;
@@ -154,6 +161,7 @@ void Personaggio::Statistiche() {
 	cout << "##############################################################################" << endl;
 }
 
+//Metodo che permette di esaminare l'area in cui ci si trova (è quasi certo di trovare un nemico e iniziare una battaglia)
 void Personaggio::Esamina() {
 	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 	int A;
@@ -161,6 +169,7 @@ void Personaggio::Esamina() {
 	srand((unsigned)time(NULL));
 	A = rand() % 100;
 
+	//Eventi random
 	if (A == 0) { _atk = 100000; _def = 100000; _ps = 100000; cout << "Sei potentissimo!!!!" << endl; Battaglia();}
 	if (A == 12) { cout << "Hai ottenuto punti vita massimi!" << endl; _ps = _psMax; Battaglia();}
 	if (A == 23) { cout << "Niente..." << endl; }
@@ -177,6 +186,7 @@ void Personaggio::Esamina() {
 
 }
 
+//Metodo in cui viene programmata la battaglia e disegnata l'arena
 void Personaggio::Battaglia()
 {
 	
@@ -235,6 +245,7 @@ void Personaggio::Battaglia()
 	} while (fine == false);
 }
 
+//Sprite random del nemico
 void Personaggio::RandomChar() {
 
 	int A;
@@ -254,6 +265,7 @@ void Personaggio::RandomChar() {
 	if (A == 10) { _nemico = '§'; }
 }
 
+//Statistiche random del nemico
 void Personaggio::Nemico() {
 
 	srand((unsigned)time(NULL));
@@ -267,6 +279,7 @@ void Personaggio::Nemico() {
 
 }
 
+//Evento raro
 void Personaggio::NemicoInvincibile() {
 
 	_livelloNemico = 666666;
@@ -277,6 +290,7 @@ void Personaggio::NemicoInvincibile() {
 
 }
 
+//Evento raro
 void Personaggio::Battagliainvincibile() {
 	RandomChar();
 
@@ -333,40 +347,42 @@ void Personaggio::Battagliainvincibile() {
 	} while (fine == false);
 }
 
-bool Personaggio::LeggiSalvataggio(bool _salvataggio)
-{
-	ifstream f;
-	char s[3];
-	char q[1];
-	UINT16 coso = 0;
+//Funzione non utilizzata
+//bool Personaggio::LeggiSalvataggio(bool _salvataggio)
+//{
+//	ifstream f;
+//	char s[3];
+//	char q[1];
+//	UINT16 coso = 0;
+//
+//	f.open("file.txt", std::ifstream::in);
+//
+//	if (f.is_open())
+//	{
+//		cout << "file aperto" << endl;
+//	}
+//	else
+//	{
+//		cout << "file chiuso" << endl;
+//	}
+//	//f.read(q, 1);
+//	f.getline(s,3);
+//	f.close();
+//
+//	coso = s[0];
+//
+//	if (s[3] == 49 ) { cout << "Trovato salvataggio" << endl; return _salvataggio = true; }
+//	else
+//	{
+//		cout << "carattere letto: " << s[0] << endl;
+//		cout << "decimale: " << coso << endl;
+//		return _salvataggio = false;
+//	}
+//
+//	
+//}
 
-	f.open("file.txt", std::ifstream::in);
-
-	if (f.is_open())
-	{
-		cout << "file aperto" << endl;
-	}
-	else
-	{
-		cout << "file chiuso" << endl;
-	}
-	//f.read(q, 1);
-	f.getline(s,3);
-	f.close();
-
-	coso = s[0];
-
-	if (s[3] == 49 ) { cout << "Trovato salvataggio" << endl; return _salvataggio = true; }
-	else
-	{
-		cout << "carattere letto: " << s[0] << endl;
-		cout << "decimale: " << coso << endl;
-		return _salvataggio = false;
-	}
-
-	
-}
-
+//Copia le statistiche salvate
 void Personaggio::CopiaSalvataggio()
 {
 	ifstream f;
@@ -409,15 +425,38 @@ void Personaggio::CopiaSalvataggio()
 
 }
 
+//Permette di visualizzare e sceglere gli oggetti da utilizzare
 void Personaggio::Oggetti()
 {
-	cout << "Hai... " << _PsSu << "Di PsSu" << _ExpSu << "Di ExpSu" << _AtkSu << "Di AtkSu" << _DefSu << "Di DefSu" << endl;
+	cout << "Hai... " << endl << _PsSu << " Di PsSu" << endl << _ExpSu << " Di ExpSu" << endl << _AtkSu << " Di AtkSu" << endl << _DefSu << " Di DefSu" << endl
+		<< "Cosa vuoi usare? ";
 
 	int scelta;
 
-	if (scelta == 1) { if (_PsSu >= 1) { cout << "Hai usato PsSu!" << endl; _PsSu = _PsSu - 1; _ps = _ps + 20; } else { cout << "Non puoi usare questo oggetto" << endl; } }
-	if (scelta == 1) { if (_PsSu >= 1) { cout << "Hai usato ExpSu!" << endl; _ExpSu = _ExpSu - 1; _exp = _exp + 20; } else { cout << "Non puoi usare questo oggetto" << endl; } }
-	if (scelta == 1) { if (_PsSu >= 1) { cout << "Hai usato AtkSu!" << endl; _AtkSu = _AtkSu - 1; _atk = _atk + 20; } else { cout << "Non puoi usare questo oggetto" << endl; } }
-	if (scelta == 1) { if (_PsSu >= 1) { cout << "Hai usato DefSu!" << endl; _DefSu = _DefSu - 1; _def = _def + 20; } else { cout << "Non puoi usare questo oggetto" << endl; } }
+	cin >> scelta;
+	if (scelta == 0) { cout << "Non hai usato niente " << endl; }
+	if (scelta == 1) { if (_PsSu >= 1) { cout << endl << "Hai usato PsSu!" << endl; _PsSu = _PsSu - 1; _ps = _ps + 20; } else { cout << "Non puoi usare questo oggetto" << endl; } }
+	if (scelta == 2) { if (_PsSu >= 1) { cout << endl << "Hai usato ExpSu!" << endl; _ExpSu = _ExpSu - 1; _exp = _exp + 20; } else { cout << "Non puoi usare questo oggetto" << endl; } }
+	if (scelta == 3) { if (_PsSu >= 1) { cout << endl << "Hai usato AtkSu!" << endl; _AtkSu = _AtkSu - 1; _atk = _atk + 20; } else { cout << "Non puoi usare questo oggetto" << endl; } }
+	if (scelta == 4) { if (_PsSu >= 1) { cout << endl << "Hai usato DefSu!" << endl; _DefSu = _DefSu - 1; _def = _def + 20; } else { cout << "Non puoi usare questo oggetto" << endl; } }
 }
 
+//Funzione salvataggio del menù principale
+void Personaggio::Salvataggio(string Nome, char Sprite, int Livello, int Atk, int Def, int Ps, int Exp)
+{
+	char scelta;
+
+	cout << "vuoi salvare? [S]" << endl;
+	cin >> scelta;
+	if (scelta == 'S' || scelta == 's') {
+		ofstream f("file.txt");
+
+		f << "1" << endl <<
+			Nome << endl <<
+			Sprite << endl <<
+			Livello << endl <<
+			Atk << endl <<
+			Def << endl <<
+			Ps << endl;
+	}
+}

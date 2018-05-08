@@ -12,8 +12,9 @@
 #include "Personaggio.h"
 #include "Gioco.h"
 using namespace::std;
-
+//Inizio del main
 int main() {
+	//Variabili
 	string nome;
 	char sprite = 'a';
 	int livello = 1;
@@ -24,13 +25,16 @@ int main() {
 	int scelta;
 	int posizione = 1;
 	bool salvataggio;
+	//Inizializzazione classi
 	Menu m;
 	Personaggio p;
 	Gioco g;
-	m.CreaMenu();
+	//Metodo per creare il menù della classe Menu nel file Menu.h
+	/*m.CreaMenu(); <-- Decommentabile */
+    //Cambiare il colore delle scritte della console
 	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 	SetConsoleTextAttribute(hConsole, 15);
-	_getch();
+	/*_getch();*/
 		//cout << "Inizio gioco" << endl;
 		//Sleep(500);
 		//cout << "Caricamento ";
@@ -41,48 +45,24 @@ int main() {
 		//Sleep(1000);
 		//cout << ". ";
 		//Sleep(1000);
-		//cout << ". " << endl;   
+		//cout << ". " << endl;   <-- Decommentabile
 
-	   ///* p.LeggiSalvataggio(salvataggio);*/
-
-
-
-
+	//Lettura dei file di salvataggio
 	ifstream f;
 	char s[3];
 	char q[1];
 	UINT16 coso = 0;
 
 	f.open("file.txt", std::ifstream::in);
-
-	if (f.is_open())
-	{
-		cout << "file aperto" << endl;
-	}
-	else
-	{
-		cout << "file chiuso" << endl;
-	}
-	//f.read(q, 1);
 	f.getline(s, 3);
 	f.close();
 
 	coso = s[0];
 
-	if (s[0] == 49) { cout << "Trovato salvataggio" << endl; salvataggio = true; }
-	else
-	{
-		cout << "carattere letto: " << s[0] << endl;
-		cout << "decimale: " << coso << endl;
-		salvataggio = false;
-	}
+	    if (s[0] == 49) { cout << "Trovato salvataggio" << endl; salvataggio = true; }
+	    else {salvataggio = false;}
 
-
-
-
-
-
-		if (salvataggio == false) { p.CreaPersonaggio(nome, sprite, livello, attacco, difesa, salute, exp); }
+        if (salvataggio == false) { p.CreaPersonaggio(nome, sprite, livello, attacco, difesa, salute, exp); }
 		else { cout << "Salvataggio già presente" << endl; }
 		cout << "Bene, ora che hai creato un personaggio, premi invio per iniziare il gioco" << endl;
 		_getch();
@@ -97,8 +77,9 @@ int main() {
 		cout << "help" << endl;
 		Sleep(40);
 		system("cls");
-		Sleep(1000);*/ 
+		Sleep(1000); <-- Decommentabile */
 
+		//Disegno del menù principale
 		SetConsoleTextAttribute(hConsole, 11);
 		do {
 			SetConsoleTextAttribute(hConsole, 11);
@@ -110,39 +91,40 @@ int main() {
             cout << "##################################" << endl;
 			cout << "##############################################################################" << endl;
 			SetConsoleTextAttribute(hConsole, 12);
-			cout << "Spostati" << endl;
+			cout << "1: Spostati" << endl;
 			SetConsoleTextAttribute(hConsole, 11);
 			cout << "##############################################################################" << endl;
 			SetConsoleTextAttribute(hConsole, 15);
-			cout << "Esamina" << endl;
+			cout << "2: Esamina" << endl;
 			SetConsoleTextAttribute(hConsole, 11);
 			cout << "##############################################################################" << endl;
 			SetConsoleTextAttribute(hConsole, 13);
-			cout << "Statistiche" << endl;
+			cout << "3: Statistiche" << endl;
 			SetConsoleTextAttribute(hConsole, 11);
 			cout << "##############################################################################" << endl;
 			SetConsoleTextAttribute(hConsole, 10);
-			cout << "Mappa" << endl;
+			cout << "4: Mappa" << endl;
 			SetConsoleTextAttribute(hConsole, 11);
 			cout << "##############################################################################" << endl;
 			SetConsoleTextAttribute(hConsole, 12);
-			cout << "Oggetti" << endl;
+			cout << "5: Oggetti" << endl;
 			cout << "##############################################################################" << endl;
 			SetConsoleTextAttribute(hConsole, 15);
-			cout << "Salva" << endl;
+			cout << "6: Salva" << endl;
 			cout << "##############################################################################" << endl;
 			SetConsoleTextAttribute(hConsole, 11);
-			cout << "Esci" << endl;
+			cout << "7: Esci" << endl;
 			cout << "##############################################################################" << endl;
 
 			cin >> scelta;
-
+			    
+			    //Scelte del menù
 				if (scelta == 1) { SetConsoleTextAttribute(hConsole, 12); cout << "inserisci una posizione: " << endl; cin >> posizione; }
-				else if (scelta == 2) { SetConsoleTextAttribute(hConsole, 15);   p.Esamina(); }
-				else if (scelta == 3) { SetConsoleTextAttribute(hConsole, 13);  p.Statistiche(); }
+				else if (scelta == 2) { SetConsoleTextAttribute(hConsole, 15); p.Esamina(); }
+				else if (scelta == 3) { SetConsoleTextAttribute(hConsole, 13); p.Statistiche(); }
 				else if (scelta == 4) { SetConsoleTextAttribute(hConsole, 10); g.Mappa(posizione); }
-				else if (scelta == 5) { p.Oggetti(); }
-				else if (scelta == 6) { /*Salva*/ }
+				else if (scelta == 5) { SetConsoleTextAttribute(hConsole, 12); p.Oggetti(); }
+				else if (scelta == 6) { SetConsoleTextAttribute(hConsole, 15); p.Salvataggio(nome, sprite, livello, attacco, difesa, salute, exp); }
 			_getch();
 		} while (scelta != 7);
 

@@ -17,7 +17,7 @@ public:
 	Gioco(int Posizione) { _posizione = Posizione; }
 	void Mappa(int Posizione);
 };
-
+//Metodo Mappa che permette di visualizzare la propria posizione nella mappa
 void Gioco::Mappa(int Posizione)
 {
 		if (Posizione == 1) {
