@@ -34,19 +34,19 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(306, 54);
+            this.textBox1.Location = new System.Drawing.Point(76, 58);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(161, 52);
+            this.textBox1.Size = new System.Drawing.Size(161, 87);
             this.textBox1.TabIndex = 0;
             this.textBox1.Text = "Questo gioco è stato ideato e scritto da Colombo istruzioni incluse.";
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(85, 54);
+            this.textBox2.Location = new System.Drawing.Point(324, 68);
             this.textBox2.Multiline = true;
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(161, 89);
+            this.textBox2.Size = new System.Drawing.Size(127, 35);
             this.textBox2.TabIndex = 1;
             this.textBox2.Text = "Inoltre questo gioco non contiene nè cani nè gatti";
             // 

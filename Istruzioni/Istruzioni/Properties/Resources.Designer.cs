@@ -113,6 +113,16 @@ namespace Istruzioni.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap hju {
+            get {
+                object obj = ResourceManager.GetObject("hju", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap images {
             get {
                 object obj = ResourceManager.GetObject("images", resourceCulture);
@@ -123,9 +133,29 @@ namespace Istruzioni.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap jkl {
+            get {
+                object obj = ResourceManager.GetObject("jkl", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap nana_finna_woke {
             get {
                 object obj = ResourceManager.GetObject("nana finna woke", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap p {
+            get {
+                object obj = ResourceManager.GetObject("p", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

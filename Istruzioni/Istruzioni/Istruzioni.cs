@@ -21,6 +21,7 @@ namespace Istruzioni
         {
             gioco1 g1 = new gioco1();
             g1.Show();
+            this.Hide();
         }
     }
 }

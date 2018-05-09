@@ -16,5 +16,12 @@ namespace Istruzioni
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            gioco4 g4 = new gioco4();
+            g4.Show();
+            this.Hide();
+        }
     }
 }

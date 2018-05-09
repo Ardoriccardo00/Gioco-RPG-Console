@@ -69,6 +69,24 @@
     <Compile Include="gioco3.Designer.cs">
       <DependentUpon>gioco3.cs</DependentUpon>
     </Compile>
+    <Compile Include="gioco4.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="gioco4.Designer.cs">
+      <DependentUpon>gioco4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="gioco5.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="gioco5.Designer.cs">
+      <DependentUpon>gioco5.cs</DependentUpon>
+    </Compile>
+    <Compile Include="gioco6.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="gioco6.Designer.cs">
+      <DependentUpon>gioco6.cs</DependentUpon>
+    </Compile>
     <Compile Include="Informazioni.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -100,6 +118,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="gioco3.resx">
       <DependentUpon>gioco3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="gioco4.resx">
+      <DependentUpon>gioco4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="gioco5.resx">
+      <DependentUpon>gioco5.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="gioco6.resx">
+      <DependentUpon>gioco6.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Informazioni.resx">
       <DependentUpon>Informazioni.cs</DependentUpon>
@@ -156,6 +183,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\gioco3.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hju.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\p.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\jkl.PNG" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

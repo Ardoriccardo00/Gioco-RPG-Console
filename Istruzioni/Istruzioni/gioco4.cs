@@ -10,17 +10,17 @@ using System.Windows.Forms;
 
 namespace Istruzioni
 {
-    public partial class gioco1 : Form
+    public partial class gioco4 : Form
     {
-        public gioco1()
+        public gioco4()
         {
             InitializeComponent();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            gioco2 g2 = new gioco2();
-            g2.Show();
+            gioco5 g5 = new gioco5();
+            g5.Show();
             this.Hide();
         }
     }

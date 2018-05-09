@@ -117,38 +117,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="gioco3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\gioco3.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Bqr7sM6CEAAkTSB" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Bqr7sM6CEAAkTSB.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="p" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\p.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="20131231-16470752-doge" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\20131231-16470752-doge.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="images" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\images.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="nana finna woke" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\nana finna woke.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="you know Siena had to do it to em" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\you know Siena had to do it to em.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="gioco2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\gioco2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="hju" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\hju.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="gioco1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\gioco1.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="jkl" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\jkl.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="textBox1.Text" xml:space="preserve">
+    <value>Utilizzando l'opzione esamina, ci sarà un'altissima possibilità di incontrare un nemico e iniziare una battaglia, questa è la schermata di battaglia dove puoi vedere le tue statistiche, quelle del nemico e i vostri sprite. Premendo il tasto 1 portai attaccare il nemico mentre premendo il tasto 2 avrai la possibilità di difenderti riducendo i danni</value>
   </data>
 </root>

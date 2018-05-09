@@ -10,18 +10,11 @@ using System.Windows.Forms;
 
 namespace Istruzioni
 {
-    public partial class gioco1 : Form
+    public partial class gioco6 : Form
     {
-        public gioco1()
+        public gioco6()
         {
             InitializeComponent();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            gioco2 g2 = new gioco2();
-            g2.Show();
-            this.Hide();
         }
     }
 }
