@@ -25,6 +25,9 @@ int main() {
 	int scelta;
 	int posizione = 1;
 	bool salvataggio;
+	int eventi = 0;
+	int posBattaglia;
+	int fine = 0;
 	//Inizializzazione classi
 	Menu m;
 	Personaggio p;
@@ -119,12 +122,22 @@ int main() {
 			cin >> scelta;
 			    
 			    //Scelte del menù
-				if (scelta == 1) { SetConsoleTextAttribute(hConsole, 12); cout << "inserisci una posizione: " << endl; cin >> posizione; }
-				else if (scelta == 2) { SetConsoleTextAttribute(hConsole, 15); p.Esamina(); }
+			if (scelta == 1) { SetConsoleTextAttribute(hConsole, 12); cout << "inserisci una posizione: " << endl; cin >> posizione;
+			     if (posizione == 1) { posBattaglia = 1; }
+			else if (posizione == 2) { posBattaglia = 2; }
+			else if (posizione == 3) { posBattaglia = 3; }
+			else if (posizione == 4) { posBattaglia = 4; }
+			else if (posizione == 5) { posBattaglia = 5; }
+			else if (posizione == 6) { posBattaglia = 6; }
+			}
+				else if (scelta == 2) { SetConsoleTextAttribute(hConsole, 15); eventi = eventi + 1; cout << "Eventi: " << eventi << endl; p.Esamina(posizione, eventi); }
 				else if (scelta == 3) { SetConsoleTextAttribute(hConsole, 13); p.Statistiche(); }
-				else if (scelta == 4) { SetConsoleTextAttribute(hConsole, 10); g.Mappa(posizione); }
+				else if (scelta == 4) { SetConsoleTextAttribute(hConsole, 10); g.Mappa(posizione, eventi); }
 				else if (scelta == 5) { SetConsoleTextAttribute(hConsole, 12); p.Oggetti(); }
 				else if (scelta == 6) { SetConsoleTextAttribute(hConsole, 15); p.Salvataggio(nome, sprite, livello, attacco, difesa, salute, exp); }
+				else if (scelta == 1987) { p.BattagliaFinale(fine); }
+
+				if (fine = 1) { cout << "fine"; return 0; }
 			_getch();
 		} while (scelta != 7);
 
